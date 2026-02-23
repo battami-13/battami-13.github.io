@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Battami – Computer Science Undergraduate</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 1.5rem; line-height: 1.6; }
+    header { border-bottom: 2px solid #333; margin-bottom: 1rem; }
+    h1 { margin-bottom: 0.2rem; }
+    .Computer Science student who loves solving problem and learning new technologies and skills { font-style: italic; color: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Name</h1>
+    <p class="tagline">Computer Science undergraduate – interested in web development and data</p>
+  </header>
+ 
+  <main>
+    <h2>Welcome</h2>
+    <p>This is my professional portfolio website. Here you can find my projects, skills, and contact details.</p>
+  </main>
+</body>
+</html>
+ 
