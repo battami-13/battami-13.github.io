@@ -13,7 +13,7 @@
 <body>
   <header>
     <h1>Battami</h1>
-    <p class="Computer Science student who loves solving problem and learning new techonologies and skills">Computer Science undergraduate – interested in web development and data</p>
+    <p class="tagline">Computer Science undergraduate – interested in web development and data, solving problem and learning new techonologies and skills</p>
   </header>
  
   <main>
