@@ -38,17 +38,44 @@
 
     <article>
       <h3>Projects</h3>
+      <p><Strong>Summary:</Strong></p>
+      <p><Strong>Tech stack:</Strong></p>
+      <p><Strong>My contribution:</Strong></p>
+      <p><Srong>Challenges:</Srong></p></p>
+      <p><a href=""></a></p>
     </article>
   </section>
 
   <section>
     <h2>Skills</h2>
-      <p><strong>Programming languages:</strong>Python, JavaScript, Java, etc.</p>
-      <p><strong>Web technologies:</strong>HTML, CSS, React, etc.</p>
+      <p><strong>Programming languages:</strong>Python (used in coursework projects), JavaScript (portfolio website and small apps), Java (first-year assignments), etc.</p>
+      <p><strong>Web technologies, databased:</strong>HTML, CSS, React, SQL (used to design and query simple databases in class), etc.</p>
+      <p><strong>Tools:</strong>Git, GitHub, VS COde, Linux command line</p>
+      <p><strong>Teamwork and communication:</strong>Callaborated on group coursework
       <p><strong>Interests:</strong>Webdevelopnent, data engineering, cloud computing, cybersecurity</p>
       <p>Tools: Git, VS Code, etc.</p>
   </section>
 
+  <section id="contact">
+  <h2>Get In Touch</h2>
+  <form id="contact-form">
+    <div>
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+    </div>
+    <div>
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Say hello..." rows="5"></textarea>
+    </div>
+    <button type="submit" id="submit-btn">Send Message</button>
+    <p id="form-status"></p>
+  </form>
+  </section>
+    
   <section>
     <h2>Contact</h2>
     <p>📧<a href="mailto:hoichailau@gmail.com"> hoichailau@gmail.com</a></p>
@@ -57,6 +84,47 @@
     <p>Location: York, United Kingdom</p>
   </section>
 </main>
+  <script>
+  const SUPABASE_URL  = "https://mrnpnmfffwrkcfwjkskm.supabase.co";
+  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ybnBubWZmZndya2Nmd2prc2ttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNDkxNTYsImV4cCI6MjA4ODYyNTE1Nn0.L_4UTUPgDHRZX2hSSLDORcKbZO9sUGBSeycCkFU9JP4";
+
+  document.getElementById("contact-form").addEventListener("submit", async function (event) {
+      event.preventDefault();
+      const name    = document.getElementById("name").value.trim();
+      const email   = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const btn     = document.getElementById("submit-btn");
+      const status  = document.getElementById("form-status");
+
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "apikey":        SUPABASE_ANON,
+              "Authorization": `Bearer ${SUPABASE_ANON}`,
+              "Prefer":        "return=minimal"
+            },
+            body: JSON.stringify({ name, email, message })
+        });
+
+        if (response.ok) {
+          status.textContent = "✓ Message sent!";
+          event.target.reset();
+        } else {
+          status.textContent = "Something went wrong.";
+        }
+      } catch (err) {
+        status.textContent = "Could not connect.";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Send Message";
+      }
+    });
+</script>
 </body>
 </html>
  
