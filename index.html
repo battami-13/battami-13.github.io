@@ -14,11 +14,57 @@
   <header>
     <h1>Battami</h1>
     <p class="tagline">Computer Science undergraduate – interested in web development and data, solving problem and learning new technologies and skills</p>
+
+    <style>
+  /* 1. Makes the jumping motion smooth when clicking buttons */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 2. Styling the Navigation Bar */
+  .sticky-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: white;
+    padding: 10px 0;
+    border-bottom: 2px solid #eeeeee; /* Light line under the buttons */
+    position: sticky; /* This makes it stay at the top when you scroll */
+    top: 0;
+    z-index: 1000; /* Ensures it stays on top of other content */
+  }
+
+  /* 3. Styling the Links to look like Buttons */
+  .sticky-nav a {
+    text-decoration: none; /* Removes the underline */
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid #333; /* Adds an outline */
+    border-radius: 4px;
+    transition: 0.3s; /* Makes the hover effect smooth */
+  }
+
+  /* 4. Hover Effect (Changes color when mouse is over it) */
+  .sticky-nav a:hover {
+    background-color: #333;
+    color: white;
+  }
+</style>
   </header>
 
+  <nav class="sticky-nav">
+  <a href="#blog">Blog</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+  
   <!-- Blog / Writing section -->
   <section id="blog">
-    <h2>Blog and learning notes</h2>
+    <h2 id="blog">Blog and learning notes</h2>
  
     <article>
       <h3>What is a CPU cache? </h3>
@@ -57,7 +103,7 @@
   </section>
 
   <section id="About">
-    <h2>About me</h2>
+    <h2 id="about">About me</h2>
     <p>I study in the university of york, currently year one, learning computer science, learning the fundamentals of programming, web development, computer architecture, and databases, also mainly focusing on python and java.</p>
     <p>I am currently looking for internship and placement opportunities where I can develop my skills in web development and data engineering.</p>
     <p>Outside my studies, I enjoy hackathons, coding challenges, and working on small side projects.</p>
@@ -81,7 +127,7 @@
   </section>
     
   <section id="projects">
-    <h2>Features projects</h2>
+    <h2 id="projects">Features projects</h2>
 
     <article>
       <h3>Projects</h3>
@@ -97,7 +143,7 @@
   </section>
 
   <section>
-    <h2>Skills</h2>
+    <h2 id="skills">Skills</h2>
       <p><strong>Programming languages:</strong>Python (used in coursework projects), JavaScript (portfolio website and small apps), Java (first-year assignments), etc.</p>
       <p><strong>Web technologies, databased:</strong>HTML, CSS, React, SQL (used to design and query simple databases in class), etc.</p>
       <p><strong>Tools:</strong>Git, GitHub, VS COde, Linux command line</p>
@@ -152,7 +198,7 @@
 
   
   <section id="contact">
-  <h2>Get In Touch</h2>
+  <h2 id="contact">Contact</h2>
   <form id="contact-form">
     <div>
       <label for="name">Your Name</label>
