@@ -45,3 +45,38 @@ a {
     color: #ffdb70;
     text-decoration: none;
 }
+
+ html {
+    scroll-behavior: smooth;
+  }
+
+  .sticky-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: white;
+    padding: 10px 0;
+    border-bottom: 2px solid #eeeeee; 
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+  }
+
+
+  .sticky-nav a {
+    text-decoration: none; 
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid #333; 
+    border-radius: 4px;
+    transition: 0.3s; 
+  }
+
+ 
+  .sticky-nav a:hover {
+    background-color: #333;
+    color: white;
+  }
+</style>
