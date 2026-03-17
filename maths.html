@@ -19,8 +19,69 @@
     On this page I experiment with simple computer science maths using HTML, CSS, and JavaScript.
     Each tool below takes some input, does a calculation, and explains the result.
   </p>
+
+  <h2>Password combinations (toy model)</h2>
+  <p>
+    This tool estimates how many different passwords are possible, based on length
+    and the type of characters allowed. It uses simple maths (exponents) to show
+    why longer passwords are harder to guess.
+  </p>
  
-  <!-- You will add your apps below this comment -->
+  <div class="hint">
+    <strong>Hint:</strong> This is a simplified model. Real password strength also depends on patterns and attacker knowledge.
+  </div>
  
+  <label for="pw-length">Password length:</label>
+  <input type="number" id="pw-length" min="1" step="1">
+ 
+  <label for="charset">Character set:</label>
+  <select id="charset">
+    <option value="26">Letters only (26 characters)</option>
+    <option value="36">Letters + digits (36 characters)</option>
+    <option value="70">Letters + digits + symbols (about 70 characters)</option>
+  </select>
+ 
+  <button id="pw-btn">Estimate combinations</button>
+ 
+  <div class="result" id="pw-result"></div>
+
+  <script>
+    const lengthInput = document.getElementById('pw-length');
+    const charsetSelect = document.getElementById('charset');
+    const pwBtn = document.getElementById('pw-btn');
+    const pwResult = document.getElementById('pw-result');
+ 
+    function formatBigNumber(n) {
+      if (n === 0) return '0';
+      const exp = Math.floor(Math.log10(n));
+      const mantissa = n / Math.pow(10, exp);
+      return mantissa.toFixed(2) + ' × 10^' + exp;
+    }
+ 
+    pwBtn.addEventListener('click', function () {
+      const length = Number(lengthInput.value);
+      const charsetSize = Number(charsetSelect.value);
+ 
+      if (Number.isNaN(length) || length < 1) {
+        pwResult.textContent = 'Please enter a password length of at least 1.';
+        return;
+      }
+ 
+      const combinations = Math.pow(charsetSize, length);
+      const formatted = formatBigNumber(combinations);
+ 
+      pwResult.textContent =
+        'Possible passwords: about ' + formatted +
+        ' combinations (using ' + charsetSize + ' characters).';
+    });
+  </script>
+
+   <p>
+    If each character in a password can be chosen from N symbols, and the password
+    has L characters, then there are N^L possible passwords. For example, with 26
+    letters and length 4, there are 26^4 = 456,976 combinations.
+  </p>
+
+
 </body>
 </html>
