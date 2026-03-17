@@ -28,3 +28,20 @@ body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding
     width: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.8; 
+    color: #d6d6d6;
+    font-size: 16px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    color: #d6d6d6;
+}
+
+a {
+    color: #ffdb70;
+    text-decoration: none;
+}
