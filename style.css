@@ -4,17 +4,6 @@
   --accent-color: #ffdb70;
 }
 
-body.dark-theme {
-    background-color: #f2f2f2;
-    color: #333333;
-    font-family: 'Inter', -apple-system, sans-serif;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 body {
     background-color: #121212;
     margin: 0;
@@ -22,6 +11,29 @@ body {
     display: flex;
     flex-direction: column; 
     align-items: center;   
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row; /* 關鍵：左右排列 */
+    max-width: 1200px;
+    margin: 40px auto;
+    gap: 40px; /* 左右之間的間距 */
+    padding: 0 20px;
+}
+
+.sidebar {
+    flex: 0 0 280px;
+}
+
+.content-area {
+    flex: 1;
+}
+
+.avatar {
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid #d0d7de;
 }
 
 .main-card {
