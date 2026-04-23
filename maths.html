@@ -1,95 +1,168 @@
-// ── SCROLL REVEAL ──
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 60);
-      observer.unobserve(e.target);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS Maths & Tools – Battami</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #ffffff;
+      color: #09090b;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      line-height: 1.6;
     }
+    a { color: #0070f3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 2.5rem 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #e4e4e7;
+    }
+    p { color: #52525b; margin-bottom: 1rem; }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #52525b;
+      margin-bottom: 2.5rem;
+      padding: 0.4rem 0.85rem;
+      background: #fafafa;
+      border: 1px solid #e4e4e7;
+      border-radius: 8px;
+    }
+    .back:hover { background: #f4f4f5; text-decoration: none; color: #09090b; }
+    .hint {
+      background: #eff6ff;
+      border-left: 3px solid #0070f3;
+      padding: 0.65rem 1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0;
+      font-size: 0.88rem;
+      color: #1e40af;
+    }
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #52525b;
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    input, select {
+      padding: 0.55rem 0.85rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      border: 1px solid #e4e4e7;
+      border-radius: 8px;
+      outline: none;
+      width: 100%;
+      max-width: 320px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    input:focus, select:focus {
+      border-color: #0070f3;
+      box-shadow: 0 0 0 3px rgba(0,112,243,0.1);
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fff;
+      background: #09090b;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button:hover { background: #333; }
+    .result {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: #fafafa;
+      border: 1px solid #e4e4e7;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #09090b;
+      min-height: 2.5rem;
+    }
+    .result:empty { display: none; }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back">← Back to portfolio</a>
+
+  <h1>CS Maths & Tools</h1>
+  <p>Simple computer science maths tools built with HTML, CSS, and JavaScript. Each one takes some input, does a calculation, and explains the result.</p>
+
+  <!-- ── TOOL 1: Password combinations ── -->
+  <h2>Password combinations (toy model)</h2>
+  <p>Estimates how many different passwords are possible based on length and character set. Uses exponents to show why longer passwords are much harder to guess.</p>
+
+  <div class="hint">
+    <strong>Note:</strong> This is a simplified model. Real password strength also depends on patterns and attacker knowledge.
+  </div>
+
+  <label for="pw-length">Password length</label>
+  <input type="number" id="pw-length" min="1" step="1" placeholder="e.g. 8">
+
+  <label for="charset">Character set</label>
+  <select id="charset">
+    <option value="26">Letters only (26 characters)</option>
+    <option value="36">Letters + digits (36 characters)</option>
+    <option value="70">Letters + digits + symbols (~70 characters)</option>
+  </select>
+
+  <button id="pw-btn">Estimate combinations</button>
+  <div class="result" id="pw-result"></div>
+
+  <p style="margin-top:1.25rem;">
+    If each character can be chosen from N symbols and the password has L characters, there are N<sup>L</sup> possible passwords. For example, 26 letters with length 4 gives 26<sup>4</sup> = 456,976 combinations.
+  </p>
+
+<script>
+  function formatBigNumber(n) {
+    if (n === 0) return '0';
+    const exp = Math.floor(Math.log10(n));
+    const mantissa = n / Math.pow(10, exp);
+    return mantissa.toFixed(2) + ' × 10^' + exp;
+  }
+
+  document.getElementById('pw-btn').addEventListener('click', function () {
+    const length = Number(document.getElementById('pw-length').value);
+    const charsetSize = Number(document.getElementById('charset').value);
+    const result = document.getElementById('pw-result');
+
+    if (isNaN(length) || length < 1) {
+      result.textContent = 'Please enter a password length of at least 1.';
+      return;
+    }
+
+    const combinations = Math.pow(charsetSize, length);
+    result.textContent =
+      'Possible passwords: about ' + formatBigNumber(combinations) +
+      ' combinations (' + charsetSize + ' characters, length ' + length + ').';
   });
-}, { threshold: 0.08 });
-revealEls.forEach(el => observer.observe(el));
+</script>
 
-// ── "GET IN TOUCH" SMOOTH SCROLL ──
-function scrollToContact(e) {
-  e.preventDefault();
-  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-}
+</body>
+</html>
 
-// ── SUPABASE CONTACT FORM ──
-const SUPABASE_URL = 'https://mrnpnmfffwrkcfwjkskm.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ybnBubWZmZndya2Nmd2prc2ttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNDkxNTYsImV4cCI6MjA4ODYyNTE1Nn0.L_4UTUPgDHRZX2hSSLDORcKbZO9sUGBSeycCkFU9JP4';
-
-async function submitContact() {
-  const name    = document.getElementById('cf-name').value.trim();
-  const email   = document.getElementById('cf-email').value.trim();
-  const message = document.getElementById('cf-message').value.trim();
-  const btn     = document.getElementById('cf-btn');
-  const success = document.getElementById('form-success');
-  const error   = document.getElementById('form-error');
-
-  success.className = 'form-msg';
-  error.className   = 'form-msg';
-
-  if (!name || !email || !message) {
-    error.textContent = 'Please fill in all fields.';
-    error.className   = 'form-msg error';
-    return;
-  }
-
-  btn.textContent = 'Sending...';
-  btn.disabled    = true;
-
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
-      method: 'POST',
-      headers: {
-        'Content-Type':  'application/json',
-        'apikey':        SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Prefer':        'return=minimal'
-      },
-      body: JSON.stringify({ name, email, message })
-    });
-
-    if (res.ok) {
-      success.textContent = "✓ Message sent! I'll get back to you soon.";
-      success.className   = 'form-msg success';
-      document.getElementById('cf-name').value    = '';
-      document.getElementById('cf-email').value   = '';
-      document.getElementById('cf-message').value = '';
-    } else {
-      let errBody = '';
-      try { errBody = await res.text(); } catch(_) {}
-      const status = res.status;
-
-      if (status === 404) {
-        error.innerHTML = `Table not found (404). In your <a href="https://supabase.com/dashboard" target="_blank" style="color:#dc2626;text-decoration:underline">Supabase dashboard</a>, go to <strong>SQL Editor</strong> and run:<br><br>
-          <code style="font-size:0.78rem;background:#fff0f0;padding:6px 8px;border-radius:6px;display:block;margin-top:4px">
-          CREATE TABLE contact_messages (<br>
-          &nbsp;&nbsp;id bigserial PRIMARY KEY,<br>
-          &nbsp;&nbsp;name text NOT NULL,<br>
-          &nbsp;&nbsp;email text NOT NULL,<br>
-          &nbsp;&nbsp;message text NOT NULL,<br>
-          &nbsp;&nbsp;created_at timestamptz DEFAULT now()<br>
-          );<br><br>
-          ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;<br>
-          CREATE POLICY "allow_insert" ON contact_messages FOR INSERT WITH CHECK (true);
-          </code>`;
-        error.className = 'form-msg error';
-      } else if (status === 401 || status === 403) {
-        error.textContent = `Permission denied (${status}). Make sure Row Level Security allows anon inserts.`;
-        error.className   = 'form-msg error';
-      } else {
-        error.textContent = `Error ${status}: ${errBody || 'Something went wrong. Please email me directly at hoichailau@gmail.com'}`;
-        error.className   = 'form-msg error';
-      }
-    }
-  } catch (err) {
-    error.textContent = 'Network error — please check your connection or email me at hoichailau@gmail.com';
-    error.className   = 'form-msg error';
-  }
-
-  btn.textContent = 'Send message';
-  btn.disabled    = false;
-}
