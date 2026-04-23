@@ -2,260 +2,252 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Battami – Computer Science Undergraduate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battami — CS Student</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
 </head>
-<body class="github-style">
+<body>
 
-  <div class="main-container">
-    
-    <aside class="sidebar">
-      <div class="profile-section">
-        <img src="your-photo.jpg" alt="Profile Picture" class="avatar">
-        <h1>Battami</h1>
-        <p class="username">Computer Science Student</p>
+<!-- ── HEADER ── -->
+<header>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Battami</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta" onclick="scrollToContact(event)">Get in touch</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="hero" style="border:none; padding-top:140px;">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      Open to internship opportunities
+    </div>
+    <h1>Computer Science<br><em>Undergraduate.</em></h1>
+    <p class="hero-desc">
+      Hi, I'm Battami — a first-year CS student at the University of York, passionate about web development, data engineering, and building things that solve real problems.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary" onclick="scrollToContact(event)">Get in touch →</a>
+      <a href="https://github.com/battami-13" target="_blank" class="btn-secondary">GitHub ↗</a>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="reveal">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Who I am</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-body">
+        <p>I'm studying Computer Science at the <strong>University of York</strong>, building a strong foundation in programming, web development, computer architecture, and databases.</p>
+        <p>My main languages are <strong>Python and Java</strong>. I'm currently expanding into SQL, Linux, and full-stack development — working towards building web applications that connect a front end to a real database.</p>
+        <p>I enjoy <strong>hackathons and coding challenges</strong>, and I'm always working on side projects that push me to learn something I didn't know before.</p>
+        <p>I'm actively looking for <strong>internship and placement opportunities</strong> in software development, web development, or data engineering where I can apply my skills on real-world problems.</p>
       </div>
-
-      <div class="contact-card">
-        <h3>Contact Me</h3>
-        <ul>
-          <li>📧 <a href="mailto:hoichailau@gmail.com">hoichailau@gmail.com</a></li>
-          <li>🔗 <a href="#">GitHub Profile</a></li>
-          <li>🔗 <a href="#">LinkedIn</a></li>
-          <li>📍 York, United Kingdom</li>
-        </ul>
-      </div>
-      
-      <div class="skills-sidebar">
-        <h3>Top Skills</h3>
-        <p>Python, HTML, CSS, Data Science</p>
-      </div>
-    </aside>
-
-    <main class="content-area">
-      
-    <nav class="sticky-nav">
-        <a href="#blog">Blog</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="main-card">
+      <div class="about-aside">
+        <div class="info-row">
+          <div class="info-label">University</div>
+          <div class="info-value">University of York</div>
         </div>
-  
-  <header>
-    <h1>Battami</h1>
-    <p class="tagline">Computer Science undergraduate – interested in web development and data, solving problem and learning new technologies and skills</p>
+        <div class="info-row">
+          <div class="info-label">Year</div>
+          <div class="info-value">First Year, Computer Science</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Location</div>
+          <div class="info-value">York, United Kingdom</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Email</div>
+          <div class="info-value"><a href="mailto:hoichailau@gmail.com">hoichailau@gmail.com</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">GitHub</div>
+          <div class="info-value"><a href="https://github.com/battami-13" target="_blank">battami-13</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Status</div>
+          <div class="info-value" style="color:#16a34a;">● Open to opportunities</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </header>
-  
-  <!-- Blog / Writing section -->
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="reveal">
+      <div class="section-label">Skills</div>
+      <h2 class="section-title">What I work with</h2>
+      <p class="section-desc">Technologies and tools picked up through coursework, personal projects, and self-learning.</p>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-cell">
+        <div class="skill-cell-icon">🐍</div>
+        <div class="skill-cell-name">Python</div>
+        <div class="skill-cell-desc">Used in coursework and personal projects. Comfortable with core concepts and data handling.</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-icon">☕</div>
+        <div class="skill-cell-name">Java</div>
+        <div class="skill-cell-desc">First-year assignments and algorithm practice. Building understanding of OOP and data structures.</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-icon">⚡</div>
+        <div class="skill-cell-name">JavaScript</div>
+        <div class="skill-cell-desc">Used for portfolio website and small apps. Learning React for front-end development.</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-icon">🌐</div>
+        <div class="skill-cell-name">HTML & CSS</div>
+        <div class="skill-cell-desc">Comfortable building responsive, well-structured web pages from scratch.</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-icon">🗄️</div>
+        <div class="skill-cell-name">SQL</div>
+        <div class="skill-cell-desc">Designing and querying simple databases in class. Currently learning more advanced queries.</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-icon">🛠️</div>
+        <div class="skill-cell-name">Git & Linux</div>
+        <div class="skill-cell-desc">Using Git for version control and the Linux command line for development workflows.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INTERESTS ── -->
+  <section id="interests">
+    <div class="reveal">
+      <div class="section-label">Interests</div>
+      <h2 class="section-title">What I care about</h2>
+      <p class="section-desc">Areas I'm most excited to explore and build in.</p>
+    </div>
+    <div class="interests-row reveal">
+      <div class="interest-chip">🌐 Web Development</div>
+      <div class="interest-chip">📊 Data Engineering</div>
+      <div class="interest-chip">☁️ Cloud Computing</div>
+      <div class="interest-chip">🔐 Cybersecurity</div>
+      <div class="interest-chip">🏆 Hackathons</div>
+      <div class="interest-chip">🧩 Coding Challenges</div>
+      <div class="interest-chip">⚙️ Full-Stack Development</div>
+    </div>
+
+    <div style="margin-top: 3rem;" class="reveal">
+      <div class="section-label" style="margin-bottom:1.2rem;">Currently learning</div>
+      <div class="now-grid">
+        <div class="now-card">
+          <div class="now-card-icon">🗄️</div>
+          <div class="now-card-title">SQL & Databases</div>
+          <div class="now-card-desc">Designing and querying relational databases. Exploring joins, indexing and normalisation.</div>
+        </div>
+        <div class="now-card">
+          <div class="now-card-icon">☕</div>
+          <div class="now-card-title">Java & Algorithms</div>
+          <div class="now-card-desc">Strengthening understanding of data structures, sorting algorithms, and OOP principles.</div>
+        </div>
+        <div class="now-card">
+          <div class="now-card-icon">🐧</div>
+          <div class="now-card-title">Linux CLI</div>
+          <div class="now-card-desc">Getting comfortable with the terminal, shell scripting, and Linux development tools.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BLOG ── -->
   <section id="blog">
-    <h2 id="blog">Blog and learning notes</h2>
- 
-    <article>
-      <h3>What is a CPU cache? </h3>
-      <p><strong>Date:</strong> 10 February 2026</p>
-      <p>
-        A CPU cache is a small, very fast type of memory inside the processor. 
-        It stores copies of data that the CPU uses often, so the CPU does not
-        have to wait for slower main memory (RAM). This makes programs run faster.
-      </p>
-    </article>
- 
-    <article>
-      <h3>Intro to normalisation in databases</h3>
-      <p><strong>Date:</strong> 10 February 2026</p>
-      <p>
-        Normalisation is the process of organising tables in a database so that 
-        each table focuses on one topic and there is minimal duplicated data.
-        This helps keep the data consistent and easier to maintain.
-      </p>
-    </article>
- 
-    <p>
-      I use this section to write short explanations of ideas from computer architecture,
-      databases, and other modules, so I remember them and can show my understanding.
-    </p>
-  </section>
- 
-  <main>
-  <section>
-    <h2>Hi, I'm Battami 👋</h2>
-    <p>Computer Science undergraduate passionate about building software that makes a difference. I'm currently seeking internship opportunities.</p>
-    <p><em>Interested in bavlend development and cloud computing.</em></p>
-    <p><Strong>What I do:</Strong>I enjoy building reliable, data-driven applications that solve real problem for users.</p>
-    <p><a href="#projects">View my projects </a> </p>
-    <p><a href="YourCVLink.pdf">Download my CV</a></p>
+    <div class="reveal">
+      <div class="section-label">Blog & Notes</div>
+      <h2 class="section-title">Learning in public</h2>
+      <p class="section-desc">Short notes on what I've been studying — a way to remember and show my understanding.</p>
+    </div>
+    <div class="blog-list reveal">
+      <div class="blog-item">
+        <div class="blog-item-date">10 Feb 2026</div>
+        <div class="blog-item-title">What is a CPU cache?</div>
+        <div class="blog-item-tag">Computer Architecture</div>
+      </div>
+      <div class="blog-item">
+        <div class="blog-item-date">10 Feb 2026</div>
+        <div class="blog-item-title">Intro to normalisation in databases</div>
+        <div class="blog-item-tag">Databases</div>
+      </div>
+      <div class="blog-item" style="opacity:0.45; pointer-events:none;">
+        <div class="blog-item-date">Coming soon</div>
+        <div class="blog-item-title">More notes on the way...</div>
+        <div class="blog-item-tag">—</div>
+      </div>
+    </div>
   </section>
 
-  <section id="About">
-    <h2 id="about">About me</h2>
-    <p>I study in the university of york, currently year one, learning computer science, learning the fundamentals of programming, web development, computer architecture, and databases, also mainly focusing on python and java.</p>
-    <p>I am currently looking for internship and placement opportunities where I can develop my skills in web development and data engineering.</p>
-    <p>Outside my studies, I enjoy hackathons, coding challenges, and working on small side projects.</p>
-  </section>
-    
-   <!-- Now / Goals section -->
-  <section id="now">
-    <h2>What I am working on now</h2>
-    <p>
-      Right now I am learning SQL for working with databases and practising Java programming
-      to strengthen my understanding of algorithms and data structures. Also trying some lunix skills 
-    </p>
-    <p>
-      Over the next year I aim to build small web applications that connect a web front end
-      to a real database, so I can practise full-stack development and data handling.
-    </p>
-    <p>
-      I am particularly interested in roles and projects related to web development and data engineering,
-      where I can design efficient systems and work with real-world datasets. Meanwhile like to apply for a summer internship in software development.
-    </p>
-  </section>
-    
-  <section id="projects">
-    <h2 id="projects">Features projects</h2>
-
-    <article>
-      <h3>Projects</h3>
-      <p><Strong>Summary:</Strong></p>
-      <p><Strong>Tech stack:</Strong></p>
-      <p><Strong>My contribution:</Strong></p>
-      <p><Srong>Challenges:</Srong></p></p>
-      <p><a href=""></a></p>
-    </article>
-      <p>
-  <a href="maths.html">View my CS Maths & Tools page</a>
-</p>
-  </section>
-
-  <section>
-    <h2 id="skills">Skills</h2>
-      <p><strong>Programming languages:</strong>Python (used in coursework projects), JavaScript (portfolio website and small apps), Java (first-year assignments), etc.</p>
-      <p><strong>Web technologies, databased:</strong>HTML, CSS, React, SQL (used to design and query simple databases in class), etc.</p>
-      <p><strong>Tools:</strong>Git, GitHub, VS COde, Linux command line</p>
-      <p><strong>Teamwork and communication:</strong>Callaborated on group coursework
-      <p><strong>Interests:</strong>Webdevelopnent, data engineering, cloud computing, cybersecurity</p>
-      <p>Tools: Git, VS Code, etc.</p>
-  </section>
-   
-  <!-- Achievements and certificates section -->
-  <section id="achievements">
-    <h2>Achievements and certificates</h2>
- 
-    <h3>Online courses and badges</h3>
-    <ul>
-      <li>
-        <strong>Google Skills – [Course name]</strong> 
-        – <a href="https://www.skills.google/">View course platform</a> 
-        <!-- Replace with your specific certificate link if you have it -->
-      </li>
-      <li>
-        <strong>AWS Skills Builder – [Cloud fundamentals badge]</strong> 
-        – <a href="https://explore.skillbuilder.aws">View AWS Skills Builder</a>
-      </li>
-      <li>
-        <strong>Microsoft Learn – [Module or learning path]</strong> 
-        – <a href="https://learn.microsoft.com/training/">View Microsoft Learn</a>
-      </li>
-      <li>
-        <strong>Cisco Networking Academy – [Course name]</strong> 
-        – <a href="https://www.netacad.com/">View Cisco NetAcad</a>
-      </li>
-      <li>
-        <strong>IBM SkillsBuild – [Badge name]</strong> 
-        – <a href="https://skillsbuild.org/">View IBM SkillsBuild</a>
-      </li>
-      <li>
-        <strong>Credly – [Badge name]</strong> 
-        – <a href="https://www.credly.com/">View Credly profile</a>
-      </li>
-    </ul>
- 
-    <h3>Competitions and events</h3>
-    <ul>
-      <li>
-        [Year] – Participated in [Hackathon name] – worked on a small team building a web application in 24 hours.
-      </li>
-      <li>
-        [Year] – Took part in a programming contest / coding challenge focused on algorithms and problem-solving.
-      </li>
-    </ul>
-  </section>
-
-  
+  <!-- ── CONTACT ── -->
   <section id="contact">
-  <h2 id="contact">Contact</h2>
-  <form id="contact-form">
-    <div>
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Let's connect</h2>
+        <p>I'm open to internship and placement opportunities, collaborations, or just a conversation. Feel free to reach out through any of the channels below.</p>
+        <div class="contact-social">
+          <a href="https://github.com/battami-13" target="_blank" class="contact-social-link">
+            <div class="contact-social-icon">💻</div>
+            <div>
+              <div class="contact-social-name">GitHub</div>
+              <span class="contact-social-handle">battami-13</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-social-link">
+            <div class="contact-social-icon">🔗</div>
+            <div>
+              <div class="contact-social-name">LinkedIn</div>
+              <span class="contact-social-handle">Connect with me</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="form">
+          <div id="form-success" class="form-msg"></div>
+          <div id="form-error" class="form-msg"></div>
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input id="cf-name" type="text" class="form-input" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input id="cf-email" type="email" class="form-input" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea id="cf-message" class="form-textarea" placeholder="What's on your mind?"></textarea>
+          </div>
+          <button class="form-submit" id="cf-btn" onclick="submitContact()">Send message</button>
+        </div>
+      </div>
     </div>
-    <div>
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required placeholder="jane@example.com" />
-    </div>
-    <div>
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required placeholder="Say hello..." rows="5"></textarea>
-    </div>
-    <button type="submit" id="submit-btn">Send Message</button>
-    <p id="form-status"></p>
-  </form>
   </section>
-    
-  <section>
-    <h2>Contact</h2>
-    <p>📧<a href="mailto:hoichailau@gmail.com"> hoichailau@gmail.com</a></p>
-    <p>💻 <a href="https://github.com/battami-13">GitHub</a></p>
-    <p>🔗 <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></p>
-    <p>Location: York, United Kingdom</p>
-  </section>
+
 </main>
-  <script>
-  const SUPABASE_URL  = "https://mrnpnmfffwrkcfwjkskm.supabase.co";
-  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ybnBubWZmZndya2Nmd2prc2ttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNDkxNTYsImV4cCI6MjA4ODYyNTE1Nn0.L_4UTUPgDHRZX2hSSLDORcKbZO9sUGBSeycCkFU9JP4";
 
-  document.getElementById("contact-form").addEventListener("submit", async function (event) {
-      event.preventDefault();
-      const name    = document.getElementById("name").value.trim();
-      const email   = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const btn     = document.getElementById("submit-btn");
-      const status  = document.getElementById("form-status");
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-left">© 2026 <strong>Battami</strong> · University of York</div>
+  <div class="footer-right">
+    <a href="https://github.com/battami-13" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+  </div>
+</footer>
 
-      btn.disabled = true;
-      btn.textContent = "Sending...";
-
-      try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "apikey":        SUPABASE_ANON,
-              "Authorization": `Bearer ${SUPABASE_ANON}`,
-              "Prefer":        "return=minimal"
-            },
-            body: JSON.stringify({ name, email, message })
-        });
-
-        if (response.ok) {
-          status.textContent = "✓ Message sent!";
-          event.target.reset();
-        } else {
-          status.textContent = "Something went wrong.";
-        }
-      } catch (err) {
-        status.textContent = "Could not connect.";
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "Send Message";
-      }
-    });
-</script>
+<script src="main.js"></script>
 </body>
 </html>
- 
